@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="module1_sol_app">
+<html lang="en" ng-app="LunchCheck">
 
 <head>
     <meta charset="UTF-8">
@@ -21,17 +21,19 @@
 </head>
 
 <body>
-    <div class="container" ng-controller="MsgController">
+    <div class="container" ng-controller="LunchCheckController">
         <h1>Lunch Checker</h1>
-        {{name}}
+
         <div class="form-group">
-            <input id="lunch-menu" type="text" placeholder="list comma separated dishes you usually have for lunch" class="form-control">
+            <!-- you do NOT consider an empty item, i.e., , , as an item towards to the count -->
+            <input id="lunch-menu" ng-model="items" type="text" placeholder="list comma separated dishes you usually have for lunch" class="form-control">
         </div>
         <div class="form-group">
-            <button class="btn btn-info">Check If Too Much</button>
+            <button class="btn btn-info" ng-click="GetStatus(items)">Check If Too Much</button>
         </div>
         <div class="form-group message">
             <!-- Your message can go here. -->
+            {{message}}
         </div>
     </div>
 
